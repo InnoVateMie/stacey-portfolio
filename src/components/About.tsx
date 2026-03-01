@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Quote, Heart, Lightbulb, Users, Sparkles, Target, Zap } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   const ref = useRef(null);
@@ -73,11 +74,14 @@ export default function About() {
                 {/* Content */}
                 <div className="relative">
                   {/* Avatar */}
-                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl bg-gradient-to-br from-[#6366f1] to-[#8b5cf6] flex items-center justify-center mb-6 shadow-lg shadow-[#6366f1]/30">
-                    <span className="text-4xl sm:text-5xl font-bold text-white">SM</span>
+                  <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden mb-6 shadow-lg shadow-[#6366f1]/30">
+                    <Image src="/Stacey.png" alt="Stacey Mardt" width={128} height={128} className="object-cover w-full h-full" />
                   </div>
                   
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[var(--foreground)] mb-2">Stacey Mardt</h3>
+                  <h3 className="mb-2">
+                    <span className="text-3xl sm:text-4xl text-[var(--foreground)]" style={{ fontFamily: 'var(--font-script)' }}>Stacey</span>
+                    <span className="text-lg sm:text-xl font-light tracking-[0.2em] text-[var(--foreground)]/80 ml-2" style={{ fontFamily: 'var(--font-display)' }}>MARDT</span>
+                  </h3>
                   <p className="text-[#818cf8] font-medium mb-6">Systems Administrator & Operations Catalyst</p>
                   
                   {/* Highlights */}
@@ -100,12 +104,12 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Quote Card - Below image on mobile */}
+              {/* Quote Card - Below highlights on mobile, beside on desktop */}
               <motion.div
                 initial={{ opacity: 0, y: 20, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="mt-4 sm:mt-0 sm:absolute sm:-bottom-6 sm:-right-4 lg:right-4 glass-card p-4 sm:p-5 rounded-xl sm:rounded-2xl border-l-4 border-[#f59e0b]"
+                className="mt-6 glass-card p-4 sm:p-5 rounded-xl border-l-4 border-[#f59e0b]"
               >
                 <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-[#f59e0b] mb-2" />
                 <p className="text-[var(--foreground)]/90 text-xs sm:text-sm italic">
